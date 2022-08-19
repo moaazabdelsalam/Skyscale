@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.io.skyscale.fragments.HomeFragment"
+        android:label="@string/bottom_nav_label_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/upscaleFragment"
+        android:name="com.io.skyscale.fragments.UpscaleFragment"
+        android:label="@string/bottom_nav_label_upscale"
+        tools:layout="@layout/fragment_upscale">
+        <action
+            android:id="@+id/action_upscaleFragment_to_chooseServiceFragment"
+            app:destination="@id/chooseServiceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myImagesFragment"
+        android:name="com.io.skyscale.fragments.MyImagesFragment"
+        android:label="@string/bottom_nav_label_my_images"
+        tools:layout="@layout/fragment_my_images">
+        <action
+            android:id="@+id/action_myImagesFragment_to_clickedImageFragment"
+            app:destination="@id/clickedImageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseServiceFragment"
+        android:name="com.io.skyscale.fragments.ChooseServiceFragment"
+        android:label="@string/label_choose_service"
+        tools:layout="@layout/fragment_choose_service">
+        <argument
+            android:name="image"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/clickedImageFragment"
+        android:name="com.io.skyscale.fragments.ClickedImageFragment"
+        android:label=""
+        tools:layout="@layout/fragment_clicked_image">
+        <argument
+            android:name="image_index"
+            app:argType="integer" />
+    </fragment>
+</navigation>
